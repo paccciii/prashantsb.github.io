@@ -1,38 +1,143 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>2 Years of my Journey</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to right, #1f1c2c, #928dab);
-            color: #2c2c2c;
+            box-sizing: border-box;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 60px auto;
-            background: #ffffff;
-            padding: 50px;
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            line-height: 1.8;
-            font-size: 18px;
+        body {
+            font-family: 'Merriweather', Georgia, serif;
+            background: #f4f1ec;
+            color: #2d2926;
+            line-height: 1.85;
         }
 
-        h1 {
-            text-align: center;
-            font-size: 42px;
-            margin-bottom: 40px;
-            color: #4a3f8f;
+        /* ── HERO ── */
+        .hero {
+            background: #1e2a3a;
+            color: #e8e2d9;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 40px;
+            position: relative;
+        }
+
+        .hero-inner {
+            max-width: 680px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero-tag {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 12px;
             letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #8aabcc;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadein 0.6s ease 0.2s forwards;
         }
 
-        p {
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 64px);
+            font-weight: 300;
+            line-height: 1.2;
+            color: #f0ebe3;
+            margin-bottom: 24px;
+            opacity: 0;
+            animation: fadein 0.7s ease 0.4s forwards;
+        }
+
+        .hero h1 span {
+            color: #8aabcc;
+        }
+
+        .hero-desc {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            color: #9099a6;
+            max-width: 420px;
+            opacity: 0;
+            animation: fadein 0.7s ease 0.6s forwards;
+        }
+
+        .hero-scroll-hint {
+            position: absolute;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            color: #4e6070;
+            letter-spacing: 1px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            opacity: 0;
+            animation: fadein 1s ease 1.2s forwards;
+        }
+
+        .hero-scroll-hint::after {
+            content: '';
+            display: block;
+            width: 1px;
+            height: 36px;
+            background: #4e6070;
+            animation: linedown 1.8s ease-in-out infinite;
+        }
+
+        @keyframes linedown {
+            0%, 100% { transform: scaleY(1); opacity: 0.4; }
+            50%       { transform: scaleY(1.15); opacity: 1; }
+        }
+
+        @keyframes fadein {
+            to { opacity: 1; }
+        }
+
+        /* ── OPENING QUOTE ── */
+        .opening-quote {
+            background: #2d3d52;
+            padding: 48px 40px;
+            text-align: center;
+        }
+
+        .opening-quote h2 {
+            font-size: clamp(17px, 2.4vw, 22px);
+            font-weight: 300;
+            font-style: italic;
+            color: #c8d8e8;
+            max-width: 640px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ── MAIN CONTENT ── */
+        .content {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 64px 32px;
+        }
+
+        .content p {
             white-space: pre-line;
+            font-size: 17px;
+            font-weight: 300;
+            line-height: 1.9;
+            color: #2d2926;
             text-align: justify;
+            margin-bottom: 32px;
         }
 
         .highlight {
@@ -40,63 +145,207 @@
             color: #4a3f8f;
         }
 
-        footer {
+        .section-break {
             text-align: center;
-            margin-top: 40px;
-            font-size: 14px;
-            color: #d81616;
+            color: #bbb4aa;
+            font-size: 20px;
+            letter-spacing: 8px;
+            margin: 40px 0;
+        }
+
+        /* ── GRATITUDE BLOCK ── */
+        .gratitude {
+            background: #1e2a3a;
+            padding: 64px 40px;
+        }
+
+        .gratitude-inner {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .gratitude p {
+            white-space: pre-line;
+            font-size: 17px;
+            font-weight: 300;
+            line-height: 1.9;
+            color: #c4cdd8;
+            text-align: justify;
+            margin-bottom: 28px;
+        }
+
+        .section-label {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #6b8fad;
+            margin-bottom: 28px;
+        }
+
+        /* ── BROTHERS ── */
+        .brothers {
+            background: #edeae4;
+            padding: 64px 40px;
+        }
+
+        .brothers-inner {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .brothers p {
+            white-space: pre-line;
+            font-size: 17px;
+            font-weight: 300;
+            line-height: 1.9;
+            color: #2d2926;
+            text-align: justify;
+        }
+
+        .kannada {
+            font-style: italic;
+            color: #5a3e35;
+        }
+
+        /* ── CLOSING ── */
+        .closing {
+            padding: 64px 40px;
+            text-align: center;
+            background: #f4f1ec;
+        }
+
+        .closing p {
+            font-size: clamp(18px, 2.5vw, 24px);
+            font-weight: 300;
+            font-style: italic;
+            color: #3a3330;
+            max-width: 560px;
+            margin: 0 auto;
+            line-height: 1.75;
+            white-space: normal;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: #1e2a3a;
+            text-align: center;
+            padding: 28px 20px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            color: #4e6070;
+        }
+
+        /* ── SCROLL REVEAL ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 600px) {
+            .hero { padding: 50px 24px; }
+            .content, .gratitude-inner, .brothers-inner { padding: 48px 20px; }
+            .opening-quote, .gratitude, .brothers, .closing { padding: 48px 24px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Choose a job you love, and you will never have to work a day in your life.</h2>
-        <p>        <p>
 
+    <section class="hero">
+        <div class="hero-inner">
+            <p class="hero-tag">VigyanLabs · R&amp;D</p>
+            <h1>Two years.<br><span>A lot of learning.</span></h1>
+            <p class="hero-desc">A small page I made to put into words what these two years meant to me.</p>
+        </div>
+        <div class="hero-scroll-hint">scroll</div>
+    </section>
+
+    <div class="opening-quote reveal">
+        <h2>Choose a job you love, and you will never have to work a day in your life.</h2>
+    </div>
+
+    <div class="content">
+        <p class="reveal">
 
 My first interview for VigyanLabs was with Mr. Harsha Srinvas. That interview went great but that one line from him that still resonates in my ear till date is "There will be a learning curve at VigyanLabs... and it never ceases." Never in my dreams would I have imagined that the learning curve would be so steep that if one was catapulted into it, they would be launched into deep space! 
-Right from day one, I have been learning and implementing one thing or another. At VigyanLabs, the kitchen stove of innovation is always on fireeeee and there’s always something delicious cooking.
+Right from day one, I have been learning and implementing one thing or another. At VigyanLabs, the kitchen stove of innovation is always on fireeeee and there's always something delicious cooking.
 
-My journey started under Research and Development Wing, and I don’t know who else would get the opportunity to sit and discuss ideas with the CEO himself? but we do! Mr. Srinivas Varadarajan is a man with a billion ideas. It is an honor and a true privilege to sit across from him, discuss ideas and build the future. 
+My journey started under Research and Development Wing, and I don't know who else would get the opportunity to sit and discuss ideas with the CEO himself? but we do! Mr. Srinivas Varadarajan is a man with a billion ideas. It is an honor and a true privilege to sit across from him, discuss ideas and build the future. 
 
 My first objective was to build the Kubernetes as a Service for our Self Service Portal(SSP). Setting up of clusters using Kubeadm, Kops, RKE1 and Rancher was so much fun! then came the part of provisioning the storage for the cluster by local storage, NFS, Cephfs, MinIO were equally interesting. 
 
 After successfully completing the R&D on Kubernetes, I was assigned to work in the Hypervisor hosts for our SSP, moving from the world of containers to the world of virtualization! At that moment, I felt it was a step back in terms of technological advancement. But if you give it a thought, these containers must run in a VM somewhere, right? And virtualization is where I fell in love with computers once again!
+        </p>
 
+        <div class="section-break reveal">· · ·</div>
 
-"Data-Centre" The name sounds a bit deceptive. I thought only data is stored in data center in some storage devices. Wrong! Well, that’s maybe 30% true but the compute and network part is left out from the name. 
+        <p class="reveal">
+"Data-Centre" The name sounds a bit deceptive. I thought only data is stored in data center in some storage devices. Wrong! Well, that's maybe 30% true but the compute and network part is left out from the name. 
 
-Working with servers bundled and locked between racks, cooled by HVAC systems- the whole setup felt like General Zod’s prison from Superman(FYI, Henry Cavill is the best Superman). Managing hypervisors, providing storage, and writing shell and python scripts to automate storage solutions for Ceph, GlusterFS, and PetaSAN… phew, the list just keeps growing!
+Working with servers bundled and locked between racks, cooled by HVAC systems- the whole setup felt like General Zod's prison from Superman(FYI, Henry Cavill is the best Superman). Managing hypervisors, providing storage, and writing shell and python scripts to automate storage solutions for Ceph, GlusterFS, and PetaSAN… phew, the list just keeps growing!
 
-One thing I manifested during my interview was when one of the giant pillars of VigyanLabs, Mr. Mukundan Ranganathan, asked me about Terraform providers. I stated that one day VigyanLabs would have its own provider to build infrastructure using IaC tools such as Terraform. Well, it turned out that I would go on to write VigyanLabs’ Virtune Cloud Services Terraform Provider! Talk about coming full circle! 
+One thing I manifested during my interview was when one of the giant pillars of VigyanLabs, Mr. Mukundan Ranganathan, asked me about Terraform providers. I stated that one day VigyanLabs would have its own provider to build infrastructure using IaC tools such as Terraform. Well, it turned out that I would go on to write VigyanLabs' Virtune Cloud Services Terraform Provider! Talk about coming full circle! 
 
-For the last few years, we've been hearing “AI, AI” everywhere! Turns out Mr. Srinivas Varadarajan has been talking about it and implemented back in 2008. Our IPMPlus Power Managment not only saved the power but also helped and helping to little the carbon foot print of our customers. Again, Wouldn’t it be incomplete if I didn’t work in AEE EYEE?
+For the last few years, we've been hearing "AI, AI" everywhere! Turns out Mr. Srinivas Varadarajan has been talking about it and implemented back in 2008. Our IPMPlus Power Managment not only saved the power but also helped and helping to little the carbon foot print of our customers. Again, Wouldn't it be incomplete if I didn't work in AEE EYEE?
 
-Apart from experiencing 4GB to 12GB RTX series GPUs from NVIDIA to play titles like FarCry, GTA, and the RDR series (BTW, RDR2 is the GOAT), I was also fortunate enough to work with NVIDIA’s enterprise-level GPUs such as Blackwell and A100 RTX PRO while building our beloved and revolutianry AI-in-a-Box “FEMTO” product! 
+Apart from experiencing 4GB to 12GB RTX series GPUs from NVIDIA to play titles like FarCry, GTA, and the RDR series (BTW, RDR2 is the GOAT), I was also fortunate enough to work with NVIDIA's enterprise-level GPUs such as Blackwell and A100 RTX PRO while building our beloved and revolutianry AI-in-a-Box "FEMTO" product! 
 
 From GPU virtualization using MIG, to building models and deploying them, developing AI-as-a-Service, and playing around with high-end GPUs — sometimes I feel like a kid lost in a toy store. Oh, what a feast it is!
 
-“A day you didn’t learn anything is a day wasted” is the mantra I live by. To call this place an office would be an understatement, a fountain of ever-springing knowledge would be the more poetic truth. 
+"A day you didn't learn anything is a day wasted" is the mantra I live by. To call this place an office would be an understatement, a fountain of ever-springing knowledge would be the more poetic truth. 
+        </p>
+    </div>
 
+    <div class="gratitude reveal">
+        <div class="gratitude-inner">
+            <p class="section-label">Shoutouts</p>
+            <p class="reveal">
 Shout out to the most talented and inspiring people who guided me over these years and continue to do so- the multitalented Mrs. Deepthi Prasad; the man who nurtures talent and brings out the best in our team, our captain cool Mr. Bharat R; the omnipotent force of the Data Centre, Mr. Shakthy Yogan; always welcoming to share knowledge and the kindest, Mr. Srikara Diwakara; another giant pillar who inspires me to reach higher heights, Mr. Sanjeev Patil; the wisest and calmest of all, Mr. Mukundan Ranganathan; the brain behind many solutions, Mr. Karthik Kashyap; and of course the CEO himself, the epitome of humility and wisdom, Mr. Srinivas Vardarajan, along with Mr. Harsha Srivinas, who plays a pivotal role in shaping the future.
 
 Thank you for the opportunity.
 
 A special note of gratitude to Mr. Prashanth Raghu for being the right person at the right place at the right time. Truly grateful.
+            </p>
+        </div>
+    </div>
 
-
+    <div class="brothers">
+        <div class="brothers-inner">
+            <p class="section-label" style="color:#7a6a5a;">The crew</p>
+            <p class="reveal">
 Of course, my peers who make this place even more beautiful, interesting, and fun! They say the bonds formed at your first workplace last forever and can never be replaced and that truly holds true.
 
-My brothers from another mother: Mr. Harshavardahana, Mr. Manoj TN, Mr. Madhukumar G, Mr. Aditya Vannur, Mr.Karthik Kantha Nayaka, and many more ("ನಿಮ್ಮ ಹೆಸರು ನಮ್ಮ ಮನದಲ್ಲಿದೆ"ahh line)!
-
-It feels like the stars were aligned perfectly for all of this to happen at the beginning of my career.
-            
-        </p>
-        </p>
-
-        <footer>
-            ©paccciii
-        </footer>
+My brothers from another mother: Mr. Harshavardahana, Mr. Manoj TN, Mr. Madhukumar G, Mr. Aditya Vannur, Mr.Karthik Kantha Nayaka, and many more (<span class="kannada">"ನಿಮ್ಮ ಹೆಸರು ನಮ್ಮ ಮನದಲ್ಲಿದೆ"</span>ahh line)!
+            </p>
+        </div>
     </div>
+
+    <div class="closing">
+        <p class="reveal">It feels like the stars were aligned perfectly for all of this to happen at the beginning of my career.</p>
+    </div>
+
+    <footer>
+        ©paccciii
+    </footer>
+
+    <script>
+        const els = document.querySelectorAll('.reveal');
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    obs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.08 });
+        els.forEach(el => obs.observe(el));
+    </script>
+
 </body>
 </html>
